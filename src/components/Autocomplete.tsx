@@ -48,7 +48,11 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value.trim());
+    const trimmedValue = event.target.value.trim();
+    if (trimmedValue === "") {
+        return;
+    }
+    setQuery(trimmedValue);
     setIsDropdownOpen(true);
     if (selectedPerson) {
       setSelectedPerson(null);
