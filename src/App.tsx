@@ -13,8 +13,7 @@ export const App: React.FC = () => {
     return (
         <div className="container">
             <main className="section">
-          <h1 className="title"
-          data-cy="title">
+          <h1 className="title" data-cy="title">
                     {selectedPerson
                         ? `${selectedPerson.name} (${selectedPerson.born} - ${selectedPerson.died})`
                         : "No selected person"}

@@ -48,7 +48,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+    setQuery(event.target.value.trim());
     setIsDropdownOpen(true);
     if (selectedPerson) {
       setSelectedPerson(null);
@@ -75,7 +75,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
             {filteredPeople.length > 0 ? (
               filteredPeople.map((person) => (
                 <div
-                  key={person.name}
+                  key={person.slug}
                   className="dropdown-item"
                   data-cy="suggestion-item"
                   onClick={() => handleSelect(person)}
