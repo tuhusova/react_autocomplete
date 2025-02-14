@@ -1,5 +1,5 @@
-import React, { useState, useEffect, } from "react";
-import { Person } from "../types/Person";
+import React, { useState, useEffect } from 'react';
+import { Person } from '../types/Person';
 
 interface AutocompleteProps {
   people: Person[];
@@ -12,14 +12,14 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
   onSelected,
   debounceTime = 300,
 }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [filteredPeople, setFilteredPeople] = useState<Person[]>(people);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
-  const [lastQuery, setLastQuery] = useState("");
+  const [lastQuery, setLastQuery] = useState('');
 
   useEffect(() => {
-    if (query === "" && isDropdownOpen) {
+    if (query === '' && isDropdownOpen) {
       setFilteredPeople(people);
       return;
     }
@@ -30,9 +30,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
 
     const handler = setTimeout(() => {
       setFilteredPeople(
-        people.filter((person) =>
-          person.name.toLowerCase().includes(query.toLowerCase())
-        )
+        people.filter(person =>
+          person.name.toLowerCase().includes(query.toLowerCase()),
+        ),
       );
       setLastQuery(query);
     }, debounceTime);
@@ -50,7 +50,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const trimmedValue = event.target.value.trim();
     setQuery(event.target.value);
-    if (trimmedValue === "") {
+    if (trimmedValue === '') {
       setIsDropdownOpen(false);
       return;
     }
@@ -79,7 +79,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
         <div className="dropdown-menu" role="menu" data-cy="suggestions-list">
           <div className="dropdown-content">
             {filteredPeople.length > 0 ? (
-              filteredPeople.map((person) => (
+              filteredPeople.map(person => (
                 <div
                   key={person.slug}
                   className="dropdown-item"
@@ -100,4 +100,3 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
     </div>
   );
 };
-
