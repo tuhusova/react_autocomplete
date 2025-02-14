@@ -51,7 +51,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
     const trimmedValue = event.target.value.trim();
     setQuery(event.target.value);
     if (trimmedValue === "") {
-      setIsDropdownOpen(false); // Закрываем dropdown при пустом значении
+      setIsDropdownOpen(false);
       return;
     }
 
