@@ -45,6 +45,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
     setSelectedPerson(person);
     onSelected(person);
     setIsDropdownOpen(false);
+
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,14 +80,18 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
         <div className="dropdown-menu" role="menu" data-cy="suggestions-list">
           <div className="dropdown-content">
             {filteredPeople.length > 0 ? (
-              filteredPeople.map(person => (
+              filteredPeople.map((person) => (
                 <div
                   key={person.slug}
                   className="dropdown-item"
                   data-cy="suggestion-item"
-                  onClick={() => handleSelect(person)}
                 >
-                  <p className="has-text-link">{person.name}</p>
+                  <p
+                    className="has-text-link"
+                    onClick={() => handleSelect(person)}
+                  >
+                    {person.name}
+                  </p>
                 </div>
               ))
             ) : (

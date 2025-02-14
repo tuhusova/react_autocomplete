@@ -1,3 +1,23 @@
 iframe {
   display: none;
 }
+
+.dropdown-content {
+  cursor: default; // 🔹 Весь список (фон) — обычный курсор
+}
+
+.dropdown-item {
+  cursor: default; // 🔹 Каждый элемент списка тоже обычный курсор
+}
+
+.dropdown-item p {
+  cursor: pointer; // 🔹 Только текст имени (тег <p>) — указатель
+}
+
+// .input {
+//   cursor: text; // 🔹 На input курсор — текст (по умолчанию)
+// }
+
+// .dropdown-item {
+//   cursor: text; // 🔹 На .dropdown-item курсор тоже как на input
+// }
